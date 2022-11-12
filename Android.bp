@@ -16,10 +16,10 @@ java_library {
     name: "vendor.aospa.biometrics.face.required",
     sdk_version: "current",
     required: [
-        "libfd",
-        "libmf",
-        "libmu",
-        "libmu-jni",
+        "libFaceDetectCA",
+        "libmegface",
+        "libMegviiUnlock",
+        "libMegviiUnlock-jni-1.2",
         "default_permissions_co.aospa.sense.xml",
         "hiddenapi-whitelist-co.aospa.sense.xml",
         "privapp_whitelist_co.aospa.sense.xml"
@@ -27,12 +27,12 @@ java_library {
 }
 
 cc_prebuilt_library_shared {
-    name: "libfd",
+    name: "libFaceDetectCA",
     strip: {
         none: true,
     },
     target: {
-        android_arm64: { srcs: [ "lib/libfd.so" ] }
+        android_arm64: { srcs: [ "lib/libFaceDetectCA.so" ] }
     },
 
     compile_multilib: "64",
@@ -41,12 +41,12 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libmf",
+    name: "libmegface",
     strip: {
         none: true,
     },
     target: {
-        android_arm64: { srcs: [ "lib/libmf.so" ] }
+        android_arm64: { srcs: [ "lib/libmegface.so" ] }
     },
 
     compile_multilib: "64",
@@ -55,12 +55,12 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libmu",
+    name: "libMegviiUnlock",
     strip: {
         none: true,
     },
     target: {
-        android_arm64: { srcs: [ "lib/libmu.so" ] }
+        android_arm64: { srcs: [ "lib/libMegviiUnlock.so" ] }
     },
 
     compile_multilib: "64",
@@ -69,12 +69,12 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libmu-jni",
+    name: "libMegviiUnlock-jni-1.2",
     strip: {
         none: true,
     },
     target: {
-        android_arm64: { srcs: [ "lib/libmu-jni.so" ] }
+        android_arm64: { srcs: [ "lib/libMegviiUnlock-jni-1.2.so" ] }
     },
 
     compile_multilib: "64",
