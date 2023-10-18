@@ -1,0 +1,30 @@
+//
+// Copyright (C) 2022 Paranoid Android
+//
+// SPDX-License-Identifier: Apache-2.0
+//
+
+android_app_import {
+    apk: "GoogleCameraGo.apk",
+    name: "GoogleCameraGo",
+    overrides: ["Camera2"],
+    presigned: true,
+    dex_preopt: {
+        enabled: false,
+    },
+    product_specific: true,
+    optional_uses_libs: [
+        "androidx.window.extensions",
+        "androidx.window.sidecar",
+    ],
+    required: [
+        "lily_experience.xml",
+    ],
+}
+
+prebuilt_etc {
+    name: "lily_experience.xml",
+    src: "lily_experience.xml",
+    product_specific: true,
+    sub_dir: "sysconfig",
+}
