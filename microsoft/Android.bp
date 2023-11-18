@@ -1,0 +1,94 @@
+prebuilt_etc {
+    name: "privapp-permissions-deviceintegrationservice",
+    owner: "microsoft",
+    system_ext_specific: true,
+    sub_dir: "permissions",
+    src: "privapp-permissions-deviceintegrationservice.xml",
+    filename_from_src: true,
+}
+
+prebuilt_etc {
+    name: "privapp-permissions-linktowindows",
+    owner: "microsoft",
+    product_specific: true,
+    sub_dir: "permissions",
+    src: "privapp-permissions-linktowindows.xml",
+    filename_from_src: true,
+}
+
+prebuilt_etc {
+    name: "ms-hiddenapi-package-whitelist",
+    owner: "microsoft",
+    system_ext_specific: true,
+    sub_dir: "sysconfig",
+    src: "ms-hiddenapi-package-whitelist.xml",
+    filename_from_src: true,
+}
+
+prebuilt_etc {
+    name: "default-permissions-linktowindows",
+    owner: "microsoft",
+    product_specific: true,
+    sub_dir: "default-permissions",
+    src: "default-permissions-linktowindows.xml",
+    filename_from_src: true,
+}
+
+android_app_import {
+    name: "CrossDeviceServiceBroker",
+    owner: "microsoft",
+    apk: "CrossDeviceServiceBroker.apk",
+    certificate: "platform",
+    dex_preopt: {
+        enabled: false,
+    },
+    system_ext_specific: true,
+}
+
+android_app_import {
+    name: "deviceintegrationservice",
+    owner: "microsoft",
+    apk: "deviceintegrationservice.apk",
+    presigned: true,
+    dex_preopt: {
+        enabled: false,
+    },
+    privileged: true,
+    system_ext_specific: true,
+    required: [
+        "privapp-permissions-deviceintegrationservice",
+    ],
+}
+
+android_app_import {
+    name: "linktowindows",
+    owner: "microsoft",
+    apk: "linktowindows.apk",
+    presigned: true,
+    dex_preopt: {
+        enabled: false,
+    },
+    privileged: true,
+    product_specific: true,
+    required: [
+        "default-permissions-linktowindows",
+        "ms-hiddenapi-package-whitelist",
+        "privapp-permissions-linktowindows",
+    ],
+}
+
+cc_prebuilt_binary {
+    name: "virtual_keyboard",
+    owner: "microsoft",
+    shared_libs: [
+        "libbase",
+        "libbinder",
+        "liblog",
+        "libutils",
+        "packagemanager_aidl-cpp",
+    ],
+    srcs: ["virtual_keyboard"],
+    prefer: true,
+    init_rc: ["virtual_keyboard.rc"],
+    system_ext_specific: true,
+}
