@@ -9,4 +9,4 @@ PRODUCT_PACKAGES += \
     DevicePersonalizationPrebuiltPixel2020 \
     TurboAdapter \
     com.google.android.apps.dialer.call_recording_audio.features \
-    product_charger_res_images
+    vendor_charger_res_images
