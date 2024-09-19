@@ -1,5 +1,5 @@
 //
-// Copyright (C) 2023 Paranoid Android
+// Copyright (C) 2024 Paranoid Android
 // SPDX-License-Identifier: Apache-2.0
 //
 
@@ -7,6 +7,7 @@ android_app_import {
 	name: "DeviceIntelligenceNetworkPrebuilt",
 	owner: "google",
 	apk: "app/DeviceIntelligenceNetworkPrebuilt.apk",
+	preprocessed: true,
 	presigned: true,
 	dex_preopt: {
 		enabled: false,
@@ -19,6 +20,7 @@ android_app_import {
 	name: "DevicePersonalizationPrebuiltPixel2020",
 	owner: "google",
 	apk: "app/DevicePersonalizationPrebuiltPixel2020.apk",
+	preprocessed: true,
 	presigned: true,
 	dex_preopt: {
 		enabled: false,
